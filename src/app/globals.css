@@ -122,7 +122,7 @@ a {
 
 /* Hero Section Refinements */
 .hero-gradient {
-  background: radial-gradient(circle at center, var(--orange-bright) 10%, var(--orange-deep) 100%);
+  background-color: #ffa629; /* Solid vibrant retro orange-yellow matching Slice Town */
   position: relative;
   overflow: hidden;
 }
@@ -131,25 +131,26 @@ a {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1.5px, transparent 0);
+  background-image: radial-gradient(rgba(44, 26, 4, 0.08) 1.5px, transparent 0);
   background-size: 20px 20px;
   pointer-events: none;
 }
 
 .hero-text-bg {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-display);
-  font-size: clamp(80px, 16vw, 220px);
+  font-size: clamp(100px, 18vw, 240px);
   font-weight: normal;
-  color: rgba(255, 255, 255, 0.12);
+  color: #cc7814; /* A beautiful slightly darker vintage gold/orange shade matching Slice Town */
   white-space: nowrap;
   pointer-events: none;
-  line-height: 0.85;
+  line-height: 0.8;
   text-align: center;
   z-index: 1;
+  letter-spacing: -0.04em;
 }
 
 /* Typography Hierarchy */
@@ -181,7 +182,207 @@ a {
   opacity: 0.85;
 }
 
-/* Premium Buttons */
+/* Premium Buttons & Neo-Brutalist UI Elements */
+.brutalist-nav-btn {
+  background-color: var(--cream);
+  border: 2.5px solid var(--brown-dark);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brown-dark);
+  box-shadow: 3px 3px 0px var(--brown-dark);
+  transition: all 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.brutalist-nav-btn:hover {
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 4.5px 4.5px 0px var(--brown-dark);
+}
+
+.brutalist-nav-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px 0px var(--brown-dark);
+}
+
+.brutalist-nav-btn.active {
+  background-color: #f5a623; /* Active highlighted orange-yellow button state */
+}
+
+.brutalist-cta-btn {
+  background-color: var(--cream);
+  border: 3px solid var(--brown-dark);
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--brown-dark);
+  box-shadow: 4px 4px 0px var(--brown-dark);
+  transition: all 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.brutalist-cta-btn:hover {
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 5.5px 5.5px 0px var(--brown-dark);
+}
+
+.brutalist-cta-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px var(--brown-dark);
+}
+
+.brutalist-cta-btn .plus-badge {
+  background-color: var(--orange-bright);
+  color: var(--cream);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  border: 2px solid var(--brown-dark);
+}
+
+/* Double Ring Circular Brand Logo */
+.brutalist-logo {
+  width: 105px;
+  height: 105px;
+  background-color: var(--brown-dark);
+  border: 4px solid var(--cream);
+  outline: 2.5px solid var(--brown-dark);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 0.95;
+  text-align: center;
+  box-shadow: 0px 8px 24px rgba(44, 26, 4, 0.2);
+  z-index: 50;
+  transform: rotate(-4deg);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none;
+}
+
+.brutalist-logo:hover {
+  transform: rotate(0deg) scale(1.06);
+}
+
+.brutalist-logo-top {
+  font-size: 16px;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+}
+
+.brutalist-logo-bottom {
+  font-size: 19px;
+  color: #facc15;
+  margin-top: 1px;
+}
+
+/* Brutalist Navigation Layout */
+.brutalist-nav {
+  width: 100%;
+  z-index: 50;
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.brutalist-nav-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .brutalist-nav {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 16px;
+  }
+  .brutalist-nav-group {
+    gap: 12px;
+  }
+}
+
+/* Brutalist Hero Layout */
+.brutalist-hero {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 24px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.brutalist-hero-centerpiece {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 440px;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+.brutalist-hero-bottom {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .brutalist-hero {
+    min-height: auto;
+    padding: 30px 16px;
+  }
+  .brutalist-hero-centerpiece {
+    height: 300px;
+    max-width: 300px;
+    margin-top: 10px;
+  }
+  .brutalist-hero-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
 .btn-white {
   display: inline-flex;
   align-items: center;

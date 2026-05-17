@@ -49,43 +49,63 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <nav className="w-full z-50 py-6 px-10 flex justify-between items-center bg-transparent relative">
-        <div className="text-3xl font-display text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
-          Yabo Cuisine
+      <nav className="brutalist-nav">
+        <div className="brutalist-nav-group">
+          <a href="#histoire" className="brutalist-nav-btn active">
+            Histoire
+          </a>
+          <a href="#menu" className="brutalist-nav-btn">
+            Le Menu
+          </a>
         </div>
-        <div className="flex gap-4">
-          <a href="#preorder" className="btn-white">
+        
+        <a href="#" className="brutalist-logo">
+          <span className="brutalist-logo-top">Yabo</span>
+          <span className="brutalist-logo-bottom">Cuisine</span>
+        </a>
+
+        <div className="brutalist-nav-group">
+          <a href="#avis" className="brutalist-nav-btn">
+            Avis
+          </a>
+          <a href="#preorder" className="brutalist-nav-btn">
             Precommander
           </a>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="hero-gradient min-h-[85vh] flex flex-col justify-center items-center relative py-12">
+      <section className="brutalist-hero hero-gradient">
+        {/* Giant Background Text layer */}
         <div className="hero-text-bg">
-          FEAST WITH<br/>YABO CUISINE
+          YABO<br/>CUISINE
         </div>
 
-        <div className="container relative z-10 text-center flex flex-col items-center">
-          {/* Retro Emblem Stamp */}
-          <span className="bg-brown text-yellow uppercase text-xs tracking-[0.2em] font-bold px-4 py-1.5 rounded-full border-2 border-yellow mb-8 shadow-lg">
+        {/* Empty top spacing to balance the layout */}
+        <div></div>
+
+        {/* Main Hero Showcase */}
+        <div className="brutalist-hero-centerpiece">
+          <Image 
+            src="/assets/hero_hand.png" 
+            alt="Une main tenant un beignet dore croustillant"
+            fill
+            style={{ objectFit: "contain" }}
+            className="drop-shadow-[0_30px_70px_rgba(44,26,4,0.55)] scale-105"
+            priority
+          />
+        </div>
+
+        {/* Bottom Actions - left-aligned for brutalist feel, responsive */}
+        <div className="brutalist-hero-bottom">
+          <a href="#preorder" className="brutalist-cta-btn">
+            <span>Commander en ligne</span>
+            <span className="plus-badge">+</span>
+          </a>
+          
+          <span className="bg-brown text-[#facc15] uppercase text-[11px] tracking-[0.25em] font-bold px-4 py-2 border-2 border-brown-dark shadow-[3px_3px_0px_#000] rotate-2">
             Traiteur Artisanal Beninois
           </span>
-          
-          {/* Main Hero Showcase */}
-          <div style={{ position: "relative", width: "100%", maxWidth: "420px", height: "420px", margin: "0 auto" }}>
-            {/* Sunburst background effect */}
-            <div className="absolute inset-0 rounded-full bg-yellow-accent/15 blur-3xl scale-110"></div>
-            
-            <Image 
-              src="/assets/hero_hand.png" 
-              alt="Une main tenant un beignet dore croustillant"
-              fill
-              style={{ objectFit: "contain" }}
-              className="drop-shadow-[0_25px_60px_rgba(0,0,0,0.6)]"
-              priority
-            />
-          </div>
         </div>
       </section>
 
