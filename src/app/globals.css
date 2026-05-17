@@ -2202,10 +2202,12 @@ a:hover {
   color: var(--burgundy);
   outline: none;
   min-width: 0;
+  text-align: center;
 }
 
 .cafen-footer-newsletter-input::placeholder {
   color: rgba(90, 8, 8, 0.45);
+  text-align: center;
 }
 
 .cafen-footer-newsletter-btn {
@@ -2229,6 +2231,38 @@ a:hover {
 
 .cafen-footer-newsletter-btn:active {
   transform: scale(0.97);
+}
+
+@media (max-width: 576px) {
+  .cafen-footer-newsletter-form {
+    flex-direction: column;
+    gap: 14px;
+    border: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .cafen-footer-newsletter-input {
+    width: 100% !important;
+    border: 1.5px solid rgba(90, 8, 8, 0.35) !important;
+    border-radius: 100px !important;
+    padding: 14px 24px !important;
+    background-color: rgba(90, 8, 8, 0.02) !important;
+    height: 52px !important;
+  }
+
+  .cafen-footer-newsletter-input:focus {
+    border-color: var(--burgundy) !important;
+  }
+
+  .cafen-footer-newsletter-btn {
+    width: 100% !important;
+    padding: 14px 24px !important;
+    height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 }
 
 /* Two Cards Grid */
@@ -4357,3 +4391,58 @@ html {
     padding: 70px 16px;
   }
 }
+
+/* ==========================================================================
+   SCROLL REVEAL (FRAMER-STYLE EFFECTS)
+   ========================================================================== */
+
+/* The starting hidden state for revealing elements */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.scroll-reveal.slide-left {
+  transform: translateX(-35px) scale(0.98);
+}
+
+.scroll-reveal.slide-right {
+  transform: translateX(35px) scale(0.98);
+}
+
+.scroll-reveal.zoom-in {
+  transform: scale(0.92);
+}
+
+/* The revealed active state */
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Enable custom transition delays for staggered elements inside grids */
+.scroll-reveal-stagger {
+  --stagger-delay: 0s;
+}
+
+.scroll-reveal-stagger .scroll-reveal-item {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--stagger-delay);
+  will-change: transform, opacity;
+}
+
+.scroll-reveal-stagger.active .scroll-reveal-item {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-reveal-stagger.active .scroll-reveal-item:nth-child(1) { transition-delay: 0.05s; }
+.scroll-reveal-stagger.active .scroll-reveal-item:nth-child(2) { transition-delay: 0.12s; }
+.scroll-reveal-stagger.active .scroll-reveal-item:nth-child(3) { transition-delay: 0.19s; }
+.scroll-reveal-stagger.active .scroll-reveal-item:nth-child(4) { transition-delay: 0.26s; }
+.scroll-reveal-stagger.active .scroll-reveal-item:nth-child(5) { transition-delay: 0.33s; }
+.scroll-reveal-stagger.active .scroll-reveal-item:nth-child(6) { transition-delay: 0.40s; }

@@ -266,6 +266,33 @@ export default function Home() {
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.02,
+        rootMargin: "0px 0px -50px 0px"
+      }
+    );
+
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll(".scroll-reveal, .scroll-reveal-stagger");
+      elements.forEach((el) => observer.observe(el));
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [activeTab]);
+
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true);
@@ -460,13 +487,13 @@ export default function Home() {
       <section id="menu" className="section bg-cream py-24">
         <div className="container">
           <div className="elegant-menu-container">
-            <div className="elegant-menu-header">
+            <div className="elegant-menu-header scroll-reveal">
               <h2 className="elegant-menu-title">Le Choix des Gourmands</h2>
               <p className="elegant-menu-subtitle">Des spécialités béninoises authentiques, cuisinées à la commande pour une fraîcheur maximale.</p>
             </div>
 
             {/* Premium Category Filter Tabs */}
-            <div className="elegant-menu-tabs">
+            <div className="elegant-menu-tabs scroll-reveal">
               <div
                 className={`elegant-menu-tab ${activeTab === 'all' ? 'active' : ''}`}
                 onClick={() => setActiveTab('all')}
@@ -488,12 +515,13 @@ export default function Home() {
             </div>
 
             {/* Premium Bento Card Grid */}
-            <div className="elegant-menu-cards-grid">
-              {MENU_ITEMS.filter(item => activeTab === 'all' || item.category === activeTab).map(item => (
+            <div className="elegant-menu-cards-grid scroll-reveal-stagger">
+              {MENU_ITEMS.filter(item => activeTab === 'all' || item.category === activeTab).map((item, index) => (
                 <div
                   key={item.id}
-                  className={`elegant-menu-card cursor-pointer group ${item.id === 'atassi-poulet' ? 'menu-card-featured-bento' : ''}`}
+                  className={`elegant-menu-card cursor-pointer group scroll-reveal-item ${item.id === 'atassi-poulet' ? 'menu-card-featured-bento' : ''}`}
                   onClick={() => setSelectedItem(item)}
+                  style={{ transitionDelay: `${index * 0.05}s` }}
                 >
                   <div className="elegant-menu-card-image-wrapper">
                     <Image
@@ -543,7 +571,7 @@ export default function Home() {
         <div className="cafen-testimonials-deco-1"></div>
         <div className="cafen-testimonials-deco-2"></div>
 
-        <div className="cafen-testimonials-header">
+        <div className="cafen-testimonials-header scroll-reveal">
           <span className="cafen-testimonials-badge">Avis & Partages</span>
           <h2 className="cafen-testimonials-title">
             Aimé & Partagé par nos clients
@@ -553,17 +581,17 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="cafen-testimonials-grid">
+        <div className="cafen-testimonials-grid scroll-reveal-stagger">
 
           {/* Card 1 */}
-          <div className="cafen-testimonial-card">
+          <div className="cafen-testimonial-card scroll-reveal-item">
             <span className="cafen-testimonial-quote-icon">“</span>
             <div>
               <div className="cafen-testimonial-rating">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
               <p className="cafen-testimonial-text">
-                "Les Dokors sont d'une légèreté et d'un moelleux incroyables, exactement comme ceux de mon enfance à Cotonou ! C'est devenu mon rituel de commande du week-end à Cergy."
+                "Les Dokors sont d'une légèreté et d'un moelleux incroyables, exactly comme ceux de mon enfance à Cotonou ! C'est devenu mon rituel de commande du week-end à Cergy."
               </p>
             </div>
             <div className="cafen-testimonial-author">
@@ -576,7 +604,7 @@ export default function Home() {
           </div>
 
           {/* Card 2 */}
-          <div className="cafen-testimonial-card">
+          <div className="cafen-testimonial-card scroll-reveal-item">
             <span className="cafen-testimonial-quote-icon">“</span>
             <div>
               <div className="cafen-testimonial-rating">
@@ -596,7 +624,7 @@ export default function Home() {
           </div>
 
           {/* Card 3 */}
-          <div className="cafen-testimonial-card">
+          <div className="cafen-testimonial-card scroll-reveal-item">
             <span className="cafen-testimonial-quote-icon">“</span>
             <div>
               <div className="cafen-testimonial-rating">
@@ -623,7 +651,7 @@ export default function Home() {
           <div className="elegant-info-grid">
 
             {/* Left Card: The Official Retrieval Ticket */}
-            <div className="info-ticket-card">
+            <div className="info-ticket-card scroll-reveal slide-left">
               <div className="ticket-fringe"></div>
               <span className="ticket-serial">NO. 2026-YABO</span>
               <h3 className="ticket-title">Ticket de Collecte</h3>
@@ -657,7 +685,7 @@ export default function Home() {
             </div>
 
             {/* Right Card: Interactive Location Pin Card */}
-            <div className="info-location-card">
+            <div className="info-location-card scroll-reveal slide-right">
               <div className="info-location-header">
                 <div className="info-location-badge">📍 POINT CERGY</div>
                 <h3 className="location-card-title">Retrait & Contact</h3>
@@ -798,7 +826,7 @@ export default function Home() {
       <section className="elegant-footer-section relative overflow-hidden py-24 bg-cream border-t border-burgundy/10">
 
         {/* Newsletter Signup Area */}
-        <div className="cafen-footer-newsletter">
+        <div className="cafen-footer-newsletter scroll-reveal">
           <div className="cafen-footer-newsletter-icon">
             <CoffeeBagIcon />
           </div>
