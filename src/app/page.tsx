@@ -52,7 +52,7 @@ const StylizedMapSvg = () => (
     {/* Stylized region borders */}
     <path d="M40 80C50 65 75 55 100 50C125 45 150 55 160 70C170 85 155 110 145 125C135 140 120 160 100 165C80 170 60 155 50 140C40 125 30 95 40 80Z" stroke="#481616" strokeWidth="1.2" strokeDasharray="4 4" />
     <path d="M70 100C85 90 115 90 130 100C145 110 130 130 115 140C100 150 85 140 70 130C55 120 55 110 70 100Z" stroke="#481616" strokeWidth="0.8" />
-    {/* Cergy Dot Pin */}
+    {/* Lille Dot Pin */}
     <circle cx="100" cy="115" r="5" fill="#481616" />
     <circle cx="100" cy="115" r="10" stroke="#481616" strokeWidth="1.2" strokeDasharray="2 2" />
     {/* Secondary Dot Pin */}
@@ -149,7 +149,7 @@ interface MenuItem {
   id: string;
   name: string;
   price: string;
-  category: 'dokor' | 'plats';
+  category: 'supplements' | 'petite-faim' | 'vegan' | 'riz' | 'decouverte';
   image: string;
   desc: string;
   fullDetails: {
@@ -161,95 +161,286 @@ interface MenuItem {
 }
 
 const MENU_ITEMS: MenuItem[] = [
+  // Les suppléments
   {
-    id: "dokor-14",
-    name: "Dokor - 14 Pièces",
-    price: "8€",
-    category: "dokor",
-    image: "/assets/top_pick_1.png",
-    desc: "Nos célèbres beignets béninois dorés, croustillants dehors et infiniment moelleux dedans.",
+    id: "supp-wangashi",
+    name: "Wangashi (2 morceaux)",
+    price: "1,50€",
+    category: "supplements",
+    image: "/assets/polaroid_1.png",
+    desc: "Fromage traditionnel béninois frit, croustillant à l'extérieur et tendre à l'intérieur.",
     fullDetails: {
-      ingredients: ["Farine de blé tamisée", "Levure boulangère", "Sucre de canne fin", "Arôme de vanille pure"],
-      portion: "Idéal pour 1 à 2 personnes",
-      prepTime: "Préparé frais 1h avant votre retrait",
-      story: "Le Dokor est le roi du goûter béninois. Sa texture alvéolée unique provient d'une double fermentation lente de la pâte, lui conférant son moelleux légendaire."
+      ingredients: ["Lait de vache frais", "Suc de Calotropis procera", "Sel fin", "Bain d'huile végétale"],
+      portion: "Supplément gourmand (2 morceaux)",
+      prepTime: "Frit minute à la commande",
+      story: "Le Wangashi est le fromage traditionnel par excellence du Bénin, originaire des communautés Peulh. C'est l'encas salé parfait ou le supplément idéal pour sublimer vos plats."
     }
   },
   {
-    id: "dokor-28",
-    name: "Dokor - 28 Pièces",
-    price: "14€",
-    category: "dokor",
-    image: "/assets/top_pick_1.png",
-    desc: "La portion parfaite pour partager un instant de douceur ou satisfaire les grands gourmands.",
-    fullDetails: {
-      ingredients: ["Farine de blé tamisée", "Levure boulangère", "Sucre de canne fin", "Arôme de vanille pure"],
-      portion: "Idéal pour 3 à 4 personnes",
-      prepTime: "Préparé frais 1h avant votre retrait",
-      story: "Parfait pour accompagner vos fins de journées ou vos petits déjeuners du week-end. Les Dokors se dégustent traditionnellement tièdes, saupoudrés de sucre glace."
-    }
-  },
-  {
-    id: "dokor-56",
-    name: "Dokor - 56 Pièces",
-    price: "25€",
-    category: "dokor",
-    image: "/assets/top_pick_1.png",
-    desc: "Le format idéal pour regaler vos proches lors de vos fêtes ou rassemblements.",
-    fullDetails: {
-      ingredients: ["Farine de blé tamisée", "Levure boulangère", "Sucre de canne fin", "Arôme de vanille pure"],
-      portion: "Format familial / Fête (6 à 8 personnes)",
-      prepTime: "Préparation spéciale",
-      story: "Notre plus grand panier de Dokor. Il apporte l'ambiance authentique des rassemblements familiaux de Cotonou directement à vos tables de fête à Cergy."
-    }
-  },
-  {
-    id: "shawarma-box",
-    name: "Shawarma Box",
-    price: "15€",
-    category: "plats",
-    image: "/assets/top_pick_2.png",
-    desc: "2 Shawarmas copieux cuisinés avec une viande marinée tendre et notre sauce signature maison.",
-    fullDetails: {
-      ingredients: ["Viande de bœuf marinée", "Sauce crème sésame maison", "Pain libanais extra-fin", "Crudités croquantes"],
-      portion: "Copieux pour 1 à 2 personnes (2 Shawarmas)",
-      prepTime: "24h de marinade préalable requise",
-      story: "Notre viande est marinée durant 24 heures dans un savant mélange de 7 épices locales. Saisi minute, chaque shawarma allie la tendreté de la viande à la douceur de notre sauce."
-    }
-  },
-  {
-    id: "jolof-rice",
-    name: "Jolof Rice & Aloko",
-    price: "15€",
-    category: "plats",
+    id: "supp-aloko",
+    name: "Aloko",
+    price: "2,50€",
+    category: "supplements",
     image: "/assets/top_pick_3.png",
-    desc: "Riz parfumé braisé à la béninoise servi avec des plantains frites douces et caramélisées.",
+    desc: "Bananes plantains mûres dorées et frites, naturellement sucrées et fondantes.",
     fullDetails: {
-      ingredients: ["Riz parfumé long grain", "Tomates fraîches cuites au bouillon", "Bananes plantains mûres (Aloko)", "Épices Yabo secrètes"],
-      portion: "Assiette individuelle généreuse",
-      prepTime: "Cuisiné frais à la commande",
-      story: "Le riz Jolof béninois se distingue par son bouillon de viande riche dans lequel le riz mijote lentement. Accompagné d'Alokos fondants pour un équilibre sucré-salé divin."
+      ingredients: ["Bananes plantains bien mûres", "Sel fin", "Huile de friture végétale"],
+      portion: "Portion d'accompagnement",
+      prepTime: "Préparé minute",
+      story: "L'Aloko est le péché mignon d'Afrique de l'Ouest. Caramélisé à la friture, il offre ce contraste unique de douceur sucrée-salée qui accompagne à merveille tous les plats."
     }
   },
   {
-    id: "atassi-poulet",
-    name: "Atassi Spécial Poulet",
-    price: "15€",
-    category: "plats",
-    image: "/assets/top_pick_4.png",
-    desc: "Riz et haricots rouges mijotés selon la recette locale, accompagnés de poulet rôti juteux.",
+    id: "supp-frites",
+    name: "Frites Classiques",
+    price: "2,50€",
+    category: "supplements",
+    image: "/assets/polaroid_2.png",
+    desc: "Frites de pommes de terre croustillantes, dorées à la perfection.",
     fullDetails: {
-      ingredients: ["Riz blanc de qualité", "Haricots rouges mijotés tendres", "Poulet fermier rôti", "Sauce piment doux frite (Dja)"],
-      portion: "Assiette individuelle très copieuse",
+      ingredients: ["Pommes de terre fraîches", "Sel fin", "Bain de friture"],
+      portion: "Portion individuelle",
+      prepTime: "10-15 minutes",
+      story: "Des frites dorées et craquantes, idéales pour combler une petite faim ou accompagner votre viande."
+    }
+  },
+  {
+    id: "supp-frites-patate",
+    name: "Frites de Patate Douce",
+    price: "2,50€",
+    category: "supplements",
+    image: "/assets/top_pick_1.png",
+    desc: "Frites de patate douce coupées main, croustillantes à souhait avec une touche de douceur naturelle.",
+    fullDetails: {
+      ingredients: ["Patates douces sélectionnées", "Sel marin", "Épices Yabo douces"],
+      portion: "Portion d'accompagnement généreuse",
+      prepTime: "Préparé frais à la commande",
+      story: "Une alternative croustillante et légèrement sucrée aux frites traditionnelles, parfumée aux épices douces."
+    }
+  },
+
+  // Petite faim
+  {
+    id: "faim-frites-poulet",
+    name: "Frites + Poulet",
+    price: "6,50€",
+    category: "petite-faim",
+    image: "/assets/polaroid_3.png",
+    desc: "Frites croustillantes servies avec un morceau de poulet tendre mariné et doré.",
+    fullDetails: {
+      ingredients: ["Cuisse de poulet marinée aux épices", "Frites classiques", "Sauce maison"],
+      portion: "Format idéal petite faim",
+      prepTime: "Préparé minute",
+      story: "La formule parfaite pour un encas rapide et gourmand, alliant le fondant du poulet mariné au croustillant des frites."
+    }
+  },
+  {
+    id: "faim-aloko-poulet",
+    name: "Aloko + Poulet",
+    price: "6,50€",
+    category: "petite-faim",
+    image: "/assets/top_pick_3.png",
+    desc: "Bananes plantains mûres frites accompagnées d'un morceau de poulet mariné juteux.",
+    fullDetails: {
+      ingredients: ["Cuisse de poulet marinée", "Bananes plantains mûres", "Oignons émincés", "Sauce Dja douce"],
+      portion: "Format idéal petite faim",
+      prepTime: "Cuisiné minute à la commande",
+      story: "Le duo ouest-africain incontournable dans un format accessible aux étudiants pour un réconfort immédiat après les cours."
+    }
+  },
+
+  // Vegan
+  {
+    id: "vegan-atassi",
+    name: "Atassi Vegan",
+    price: "8,50€",
+    category: "vegan",
+    image: "/assets/top_pick_4.png",
+    desc: "Mélange traditionnel de riz et haricots rouges, servi avec la sauce tomate Dja et de l'Aloko fondant.",
+    fullDetails: {
+      ingredients: ["Riz long grain", "Haricots rouges mijotés", "Sauce tomate Dja (sans viande)", "Aloko (bananes plantains)"],
+      portion: "Assiette végétarienne généreuse",
       prepTime: "Mijoté traditionnel",
-      story: "L'Atassi est le plat réconfortant béninois par excellence. Le riz et les haricots fusionnent à la cuisson, servis avec la sauce Dja parfumée à l'oignon caramélisé et piment doux."
+      story: "Toute la richesse de la recette béninoise dans une version 100% végétale, saine, généreuse et pleine de protéines végétales."
+    }
+  },
+  {
+    id: "vegan-mafe",
+    name: "Riz Sauce Mafé + Aloko",
+    price: "8,50€",
+    category: "vegan",
+    image: "/assets/polaroid_4.png",
+    desc: "Riz blanc parfumé servi avec une onctueuse sauce mafé aux cacahuètes et de l'Aloko fondant.",
+    fullDetails: {
+      ingredients: ["Riz blanc de qualité", "Pâte d'arachide premium", "Légumes mijotés", "Aloko (bananes plantains)"],
+      portion: "Assiette végétarienne réconfortante",
+      prepTime: "Bouillon lent à la cacahuète",
+      story: "Une sauce mafé onctueuse et parfumée, préparée sans aucune matière animale, servie avec le riz et la touche sucrée de l'Aloko."
+    }
+  },
+  {
+    id: "vegan-jolof",
+    name: "Jolof Rice + Aloko",
+    price: "8,50€",
+    category: "vegan",
+    image: "/assets/top_pick_2.png",
+    desc: "Riz parfumé cuit dans un bouillon de tomates et d'épices, servi avec sa portion d'Aloko.",
+    fullDetails: {
+      ingredients: ["Riz long grain", "Sauce tomate concentrée", "Poivrons et oignons", "Épices Yabo", "Aloko"],
+      portion: "Assiette végétarienne parfumée",
+      prepTime: "Cuit à l'étouffée",
+      story: "Le fameux riz sénégalo-béninois dans une formule vegan pleine de pep's, mariant le piquant doux du riz aux plantains sucrés."
+    }
+  },
+
+  // À base de riz
+  {
+    id: "riz-atassi-poulet",
+    name: "Atassi + Poulet",
+    price: "9,50€",
+    category: "riz",
+    image: "/assets/top_pick_4.png",
+    desc: "Riz et haricots rouges mijotés à la béninoise, servis avec du poulet rôti mariné et de la sauce Dja.",
+    fullDetails: {
+      ingredients: ["Riz blanc", "Haricots rouges mijotés", "Poulet fermier mariné", "Sauce tomate Dja maison"],
+      portion: "Assiette individuelle très copieuse",
+      prepTime: "Marinade 24h & friture",
+      story: "L'Atassi est le plat réconfortant béninois par excellence, qui allie le fondant du riz et des haricots à la gourmandise du poulet rôti."
+    }
+  },
+  {
+    id: "riz-atassi-poisson",
+    name: "Atassi + Poisson",
+    price: "9,50€",
+    category: "riz",
+    image: "/assets/polaroid_1.png",
+    desc: "Le traditionnel Atassi (riz & haricots rouges) servi avec un poisson frit assaisonné et de la sauce Dja.",
+    fullDetails: {
+      ingredients: ["Riz blanc", "Haricots rouges", "Poisson frit mariné", "Sauce piment doux Dja"],
+      portion: "Assiette individuelle gourmande",
+      prepTime: "Poisson frit minute",
+      story: "L'alliance parfaite entre le fondant de l'Atassi et le croustillant d'un poisson frit assaisonné à la béninoise."
+    }
+  },
+  {
+    id: "riz-jolof-poulet",
+    name: "Jolof Rice + Poulet",
+    price: "9,50€",
+    category: "riz",
+    image: "/assets/top_pick_2.png",
+    desc: "Riz parfumé mijoté au bouillon de tomates et d'épices, servi avec un morceau de poulet mariné doré.",
+    fullDetails: {
+      ingredients: ["Riz long grain", "Concentré de tomate", "Poulet mariné rôti", "Bouillon d'épices maison"],
+      portion: "Assiette copieuse et épicée",
+      prepTime: "Cuisiné frais à la commande",
+      story: "Notre version du riz gras de Cotonou, longuement mijoté au bouillon de légumes et d'épices, servi avec du poulet bien juteux."
+    }
+  },
+  {
+    id: "riz-jolof-poisson",
+    name: "Jolof Rice + Poisson",
+    price: "9,50€",
+    category: "riz",
+    image: "/assets/top_pick_3.png",
+    desc: "Riz parfumé mijoté au bouillon rouge, accompagné d'un poisson frit mariné aux herbes locales.",
+    fullDetails: {
+      ingredients: ["Riz parfumé", "Bouillon de tomate", "Poisson mariné frit", "Oignons caramélisés"],
+      portion: "Assiette généreuse et parfumée",
+      prepTime: "Poisson frit à la commande",
+      story: "Un classique des déjeuners en bord de mer au Bénin. Le riz parfumé cuit au bouillon de poisson s'accorde merveilleusement avec la chair tendre et grillée."
+    }
+  },
+  {
+    id: "riz-chicken-mafe",
+    name: "Riz + Chicken Mafé",
+    price: "9,50€",
+    category: "riz",
+    image: "/assets/polaroid_4.png",
+    desc: "Riz blanc parfumé servi avec une onctueuse sauce mafé au beurre de cacahuète et morceaux de poulet tendres.",
+    fullDetails: {
+      ingredients: ["Riz blanc", "Poulet mijoté", "Pâte d'arachide pure", "Carottes et choux fondants"],
+      portion: "Assiette onctueuse et consistante",
+      prepTime: "Mijoté de 2h au beurre de cacahuète",
+      story: "Une sauce riche à base de beurre de cacahuète et de tomates mijotées, où le poulet s'imprègne de saveurs douces et gourmandes."
+    }
+  },
+
+  // Allons plus loin
+  {
+    id: "loin-ablo-poulet",
+    name: "Ablo + Poulet",
+    price: "9,50€",
+    category: "decouverte",
+    image: "/assets/polaroid_2.png",
+    desc: "Petits pains de riz béninois cuits à la vapeur, légèrement sucrés, servis avec du poulet doré et du piment vert Monyo.",
+    fullDetails: {
+      ingredients: ["Farine de riz fermentée", "Poulet rôti mariné", "Oignons et tomates fraîches (Monyo)", "Piment vert doux"],
+      portion: "3 pains Ablo + Poulet + Condiments",
+      prepTime: "Fermentation artisanale de 12h",
+      story: "L'Ablo est une spécialité vapeur unique à base de riz fermenté, légère et subtilement sucrée, adorée au Bénin et au Togo."
+    }
+  },
+  {
+    id: "loin-ablo-poisson",
+    name: "Ablo + Poisson",
+    price: "9,50€",
+    category: "decouverte",
+    image: "/assets/polaroid_1.png",
+    desc: "Pains de riz vapeur Ablo accompagnés d'un poisson frit assaisonné et du piment frais Monyo.",
+    fullDetails: {
+      ingredients: ["Pains de riz Ablo", "Poisson frit mariné", "Monyo (sauce oignon/tomate)", "Piment local"],
+      portion: "3 pains Ablo + Poisson + Condiments",
+      prepTime: "Friture à la minute",
+      story: "L'association de l'Ablo chaud vapeur avec le croustillant du poisson frit et la fraîcheur piquante du Monyo est un vrai chef-d'œuvre de street-food."
+    }
+  },
+  {
+    id: "loin-eba-poulet",
+    name: "Eba + Poulet",
+    price: "9,50€",
+    category: "decouverte",
+    image: "/assets/polaroid_3.png",
+    desc: "Pâte de gari (semoule de manioc) cuite, servie avec une sauce tomate mijotée et du poulet mariné rôti.",
+    fullDetails: {
+      ingredients: ["Semoule de manioc (Gari)", "Poulet mariné", "Sauce tomate épicée", "Bouillon local"],
+      portion: "Boule de pâte Eba + Poulet + Sauce",
+      prepTime: "Préparé à chaud",
+      story: "L'Eba est le plat quotidien incontournable en Afrique de l'Ouest, apportant une texture unique et un réconfort incomparable."
+    }
+  },
+  {
+    id: "loin-akassa-gborkpete",
+    name: "Akassa + Gborkpètè",
+    price: "9,50€",
+    category: "decouverte",
+    image: "/assets/polaroid_4.png",
+    desc: "Pâte de maïs fermentée enveloppée dans des feuilles, servie avec la fameuse sauce Gborkpètè aux tripes et abats.",
+    fullDetails: {
+      ingredients: ["Pâte de maïs fermentée (Akassa)", "Tripes et abats marinés", "Sauce rouge traditionnelle", "Épices fortes"],
+      portion: "1 boule d'Akassa + Sauce Gborkpètè riche",
+      prepTime: "Fermentation lente & mijoté long",
+      story: "Un plat traditionnel de caractère pour les connaisseurs et les amateurs de saveurs robustes et authentiques du Sud-Bénin."
+    }
+  },
+  {
+    id: "loin-akassa-monyo-poisson",
+    name: "Akassa + Monyo + Poisson",
+    price: "9,50€",
+    category: "decouverte",
+    image: "/assets/polaroid_1.png",
+    desc: "Pâte d'Akassa fermentée servie avec un poisson frit croustillant et une sauce Monyo fraîche aux tomates et oignons.",
+    fullDetails: {
+      ingredients: ["Akassa (pâte de maïs)", "Poisson frit", "Tomates et oignons crus (Monyo)", "Piment vert frais"],
+      portion: "1 boule d'Akassa + Poisson + Sauce Monyo",
+      prepTime: "Frit à la commande",
+      story: "L'accord parfait du piquant frais et craquant du Monyo avec l'acidité subtile de l'Akassa et la chair chaude du poisson."
     }
   }
 ];
 
 export default function Home() {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
-  const [activeTab, setActiveTab] = useState<'all' | 'dokor' | 'plats'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'supplements' | 'petite-faim' | 'vegan' | 'riz' | 'decouverte'>('all');
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('accueil');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -334,9 +525,9 @@ export default function Home() {
 
       {/* Top Announcement Bar */}
       <div className="announcement-bar">
-        <span>Cergy Préfecture et Environs</span>
-        <span style={{ color: 'var(--mustard)' }}>Saveurs authentiques du Bénin préparées à la commande</span>
-        <span>Tous les jours dès 18h</span>
+        <span>Lille (Moulins) et Environs</span>
+        <span style={{ color: 'var(--mustard)' }}>Saveurs authentiques du Bénin faites maison par une étudiante</span>
+        <span>Mardi au samedi de 12h à 20h</span>
       </div>
 
       {/* Cafen Header Navigation */}
@@ -443,11 +634,11 @@ export default function Home() {
         <SteamingBeignetIcon />
 
         <h2 className="cafen-statement-title">
-          Yabo est née d'une idée simple : créer une cuisine où chacun peut savourer de <span className="oval-outline">délicieux plats</span> et partager de précieux instants.
+          Une étudiante béninoise en France qui partage les saveurs de son pays à travers une cuisine <span className="oval-outline">faite maison</span>, généreuse et authentique.
         </h2>
 
         <p className="cafen-statement-desc">
-          Yabo Cuisine est née d'une conviction profonde : que la gastronomie béninoise raconte une histoire de partage, de chaleur et d'amour. Nous avons imaginé ces recettes croustillantes pour vos soirées de retrouvailles, vos pauses gourmandes et chaque instant de pur délice.
+          Yabo Cuisine est le fruit d’une passion partagée par une étudiante béninoise vivant en France. C’est une invitation chaleureuse à découvrir les plats les plus emblématiques du Bénin et d'Afrique de l'Ouest, préparés avec amour, générosité et des ingrédients frais sélectionnés avec soin pour vous régaler à Lille Moulins.
         </p>
       </section>
 
@@ -457,10 +648,10 @@ export default function Home() {
           {[
             "Précommandez dès aujourd'hui",
             "Fait maison avec amour & passion",
-            "Tous les jours dès 18h",
-            "Retrait à Cergy Préfecture",
+            "Mardi au samedi • 12h à 20h",
+            "Retrait à Lille (Moulins)",
             "Saveurs authentiques du Bénin",
-            "Les meilleurs dokor de France"
+            "Une étudiante béninoise aux fourneaux"
           ].map((item, idx) => (
             <span key={`m1-${idx}`} className="cafen-marquee-item">
               {item}
@@ -470,10 +661,10 @@ export default function Home() {
           {[
             "Précommandez dès aujourd'hui",
             "Fait maison avec amour & passion",
-            "Tous les jours dès 18h",
-            "Retrait à Cergy Préfecture",
+            "Mardi au samedi • 12h à 20h",
+            "Retrait à Lille (Moulins)",
             "Saveurs authentiques du Bénin",
-            "Les meilleurs dokor de France"
+            "Une étudiante béninoise aux fourneaux"
           ].map((item, idx) => (
             <span key={`m2-${idx}`} className="cafen-marquee-item">
               {item}
@@ -498,19 +689,37 @@ export default function Home() {
                 className={`elegant-menu-tab ${activeTab === 'all' ? 'active' : ''}`}
                 onClick={() => setActiveTab('all')}
               >
-                Tout le Menu
+                Tout
               </div>
               <div
-                className={`elegant-menu-tab ${activeTab === 'dokor' ? 'active' : ''}`}
-                onClick={() => setActiveTab('dokor')}
+                className={`elegant-menu-tab ${activeTab === 'supplements' ? 'active' : ''}`}
+                onClick={() => setActiveTab('supplements')}
               >
-                Dokor Croustillants
+                Suppléments
               </div>
               <div
-                className={`elegant-menu-tab ${activeTab === 'plats' ? 'active' : ''}`}
-                onClick={() => setActiveTab('plats')}
+                className={`elegant-menu-tab ${activeTab === 'petite-faim' ? 'active' : ''}`}
+                onClick={() => setActiveTab('petite-faim')}
               >
-                Plats & Shawarmas
+                Petite faim
+              </div>
+              <div
+                className={`elegant-menu-tab ${activeTab === 'vegan' ? 'active' : ''}`}
+                onClick={() => setActiveTab('vegan')}
+              >
+                Vegan
+              </div>
+              <div
+                className={`elegant-menu-tab ${activeTab === 'riz' ? 'active' : ''}`}
+                onClick={() => setActiveTab('riz')}
+              >
+                À base de riz
+              </div>
+              <div
+                className={`elegant-menu-tab ${activeTab === 'decouverte' ? 'active' : ''}`}
+                onClick={() => setActiveTab('decouverte')}
+              >
+                Allons plus loin
               </div>
             </div>
 
@@ -577,7 +786,7 @@ export default function Home() {
             Aimé & Partagé par nos clients
           </h2>
           <p className="cafen-testimonials-subtitle">
-            Découvrez les retours gourmands de notre communauté de Cergy Préfecture et d'ailleurs.
+            Découvrez les retours gourmands de notre communauté de Lille et d'ailleurs.
           </p>
         </div>
 
@@ -591,14 +800,14 @@ export default function Home() {
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
               <p className="cafen-testimonial-text">
-                "Les Dokors sont d'une légèreté et d'un moelleux incroyables, exactly comme ceux de mon enfance à Cotonou ! C'est devenu mon rituel de commande du week-end à Cergy."
+                "Retrouver la vraie cuisine béninoise faite maison à Lille est un pur bonheur. L'Atassi est copieux et délicieux, parfait pour mes repas d'étudiant !"
               </p>
             </div>
             <div className="cafen-testimonial-author">
               <div className="cafen-testimonial-avatar">AL</div>
               <div className="cafen-testimonial-meta">
                 <span className="cafen-testimonial-name">Amina L.</span>
-                <span className="cafen-testimonial-role">Client Gourmand • Cergy</span>
+                <span className="cafen-testimonial-role">Client Gourmand • Lille</span>
               </div>
             </div>
           </div>
@@ -618,7 +827,7 @@ export default function Home() {
               <div className="cafen-testimonial-avatar">MD</div>
               <div className="cafen-testimonial-meta">
                 <span className="cafen-testimonial-name">Marc D.</span>
-                <span className="cafen-testimonial-role">Amateur de Saveurs • Pontoise</span>
+                <span className="cafen-testimonial-role">Amateur de Saveurs • Lille</span>
               </div>
             </div>
           </div>
@@ -631,14 +840,14 @@ export default function Home() {
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
               <p className="cafen-testimonial-text">
-                "En tant qu'étudiante originaire du Bénin, retrouver ces saveurs authentiques à Cergy me fait chaud au cœur. La commande sur WhatsApp est ultra simple et le retrait rapide."
+                "En tant qu'étudiante originaire de Cotonou, retrouver la cuisine de mon pays à Lille me réchauffe le cœur. C'est généreux, fait maison et parfait pour notre budget étudiant."
               </p>
             </div>
             <div className="cafen-testimonial-author">
               <div className="cafen-testimonial-avatar">SB</div>
               <div className="cafen-testimonial-meta">
                 <span className="cafen-testimonial-name">Sarah B.</span>
-                <span className="cafen-testimonial-role">Étudiante Gourmande • Cergy</span>
+                <span className="cafen-testimonial-role">Étudiante Gourmande • Lille</span>
               </div>
             </div>
           </div>
@@ -671,14 +880,14 @@ export default function Home() {
                   <span className="step-number">02</span>
                   <div className="step-content">
                     <h5>Recevez les détails</h5>
-                    <p>Une fois validée, l'adresse de retrait exacte à Cergy vous est envoyée instantanément.</p>
+                    <p>Une fois validée, l'adresse de retrait exacte à Lille vous est envoyée instantanément.</p>
                   </div>
                 </div>
                 <div className="ticket-step-item">
                   <span className="step-number">03</span>
                   <div className="step-content">
                     <h5>Collectez & Dégustez</h5>
-                    <p>Vos Dokors et plats mijotés sont préparés minute pour être livrés chauds à l'heure convenue.</p>
+                    <p>Vos plats mijotés sont préparés minute pour être livrés chauds à l'heure convenue.</p>
                   </div>
                 </div>
               </div>
@@ -687,7 +896,7 @@ export default function Home() {
             {/* Right Card: Interactive Location Pin Card */}
             <div className="info-location-card scroll-reveal slide-right">
               <div className="info-location-header">
-                <div className="info-location-badge">📍 POINT CERGY</div>
+                <div className="info-location-badge">📍 POINT LILLE</div>
                 <h3 className="location-card-title">Retrait & Contact</h3>
               </div>
 
@@ -696,7 +905,7 @@ export default function Home() {
                   <MapPinIcon />
                   <div>
                     <h5>Adresse de collecte</h5>
-                    <p>Cergy Préfecture, 95000</p>
+                    <p>62 Bd de Belfort, 59000 Lille</p>
                   </div>
                 </div>
 
@@ -704,7 +913,7 @@ export default function Home() {
                   <PhoneIcon />
                   <div>
                     <h5>WhatsApp de précommande</h5>
-                    <p className="font-display text-lg text-cream">+33 6 00 00 00 00</p>
+                    <p className="font-display text-lg text-cream">07 52 49 47 74</p>
                   </div>
                 </div>
 
@@ -712,8 +921,8 @@ export default function Home() {
                   <ClockIcon />
                   <div>
                     <h5>Horaires d'ouverture</h5>
-                    <p>Semaine : dès 18h00</p>
-                    <p>Week-end : service continu midi & soir</p>
+                    <p>Du mardi au samedi</p>
+                    <p>De 12h00 à 20h00</p>
                   </div>
                 </div>
               </div>
@@ -862,11 +1071,10 @@ export default function Home() {
                 <div className="cafen-footer-opening-hours">
                   <h4 className="cafen-footer-opening-title">Heures de Retrait</h4>
                   <p className="cafen-footer-opening-lines">
-                    Mardi au Vendredi : de 18:00 à 22:00<br />
-                    Samedi & Dimanche : de 12:00 à 22:00
+                    Mardi au Samedi : de 12:00 à 20:00
                   </p>
                   <p className="cafen-footer-opening-note">
-                    * Plats préparés chauds minute à récupérer à Cergy Préfecture.
+                    * Plats préparés chauds minute à récupérer à Lille (62 Bd de Belfort).
                   </p>
                 </div>
 
@@ -899,7 +1107,7 @@ export default function Home() {
                 <div className="cafen-footer-links-col">
                   <a href="#retrait" className="cafen-footer-link">Collecte</a>
                   <a href="#social" className="cafen-footer-link">Réseaux</a>
-                  <a href="https://wa.me/33600000000" target="_blank" rel="noopener noreferrer" className="cafen-footer-link">WhatsApp</a>
+                  <a href="https://wa.me/33752494774" target="_blank" rel="noopener noreferrer" className="cafen-footer-link">WhatsApp</a>
                   <a href="#" className="cafen-footer-link">Mentions</a>
                 </div>
               </div>
@@ -922,7 +1130,7 @@ export default function Home() {
             <span>Fait maison avec amour 🥯</span>
           </div>
           <div className="cafen-footer-badge-pill">
-            <span>Cergy, France 🇫🇷</span>
+            <span>Lille, France 🇫🇷</span>
           </div>
         </div>
       </section>
@@ -977,8 +1185,8 @@ export default function Home() {
                 <button
                   className="editorial-modal-btn-add w-full"
                   onClick={() => {
-                    const text = `Bonjour Yabo Cuisine, je souhaite commander ce plat:\n- Plat: ${selectedItem.name} (${selectedItem.price})\n\nMerci de me recontacter pour finaliser l'heure de retrait à Cergy !`;
-                    window.open(`https://wa.me/33600000000?text=${encodeURIComponent(text)}`, "_blank");
+                    const text = `Bonjour Yabo Cuisine, je souhaite commander ce plat:\n- Plat: ${selectedItem.name} (${selectedItem.price})\n\nMerci de me recontacter pour finaliser l'heure de retrait à Lille !`;
+                    window.open(`https://wa.me/33752494774?text=${encodeURIComponent(text)}`, "_blank");
                   }}
                 >
                   Commander via WhatsApp

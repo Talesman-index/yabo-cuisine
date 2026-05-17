@@ -1436,6 +1436,8 @@ a:hover {
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .elegant-menu-tab:hover {
