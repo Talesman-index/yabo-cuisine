@@ -920,7 +920,7 @@ export default function Home() {
             </div>
 
             <div className="editorial-modal-content-side">
-              <div>
+              <div className="editorial-modal-scroll-content">
                 <h3 className="editorial-modal-title">{selectedItem.name}</h3>
                 <div className="editorial-modal-price">{selectedItem.price}</div>
                 <p className="editorial-modal-story">{selectedItem.fullDetails.story}</p>
