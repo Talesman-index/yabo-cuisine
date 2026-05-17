@@ -638,7 +638,7 @@ export default function Home() {
         </h2>
 
         <p className="cafen-statement-desc">
-          Yabo Cuisine est le fruit d’une passion partagée par une étudiante béninoise vivant en France. C’est une invitation chaleureuse à découvrir les plats les plus emblématiques du Bénin et d'Afrique de l'Ouest, préparés avec amour, générosité et des ingrédients frais sélectionnés avec soin pour vous régaler à Lille Moulins.
+          Yabo Cuisine est le fruit d’une passion partagée par une étudiante béninoise vivant en France. C’est un repère gourmand pensé pour les étudiants africains, la diaspora en quête du goût du pays, et tous les curieux désireux de découvrir l'authenticité de la cuisine ouest-africaine. Préparés avec amour et générosité, nos plats vous régalent partout autour de Lille et Cergy.
         </p>
       </section>
 
