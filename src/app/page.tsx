@@ -946,56 +946,58 @@ export default function Home() {
             {/* Left side: Reels 1 & 2 */}
             <div className="cafen-social-column left-cols">
               {/* Reel 1 */}
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="cafen-reel-card">
+              <a href="https://www.tiktok.com/@yabo_cyrovanie/video/7633861406072376598" target="_blank" rel="noopener noreferrer" className="cafen-reel-card">
                 <div className="cafen-reel-play">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-burgundy ml-0.5">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                   </svg>
                 </div>
                 <div className="cafen-reel-image-wrapper">
-                  <Image src="/assets/top_pick_2.png" alt="Préparation de l'Atassi" fill style={{ objectFit: "cover" }} />
+                  <video
+                    src="/assets/tiktok_video_1.mp4"
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
                 </div>
               </a>
 
               {/* Reel 2 */}
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="cafen-reel-card">
+              <a href="https://www.tiktok.com/@yabo_cyrovanie/video/7633383265033915670" target="_blank" rel="noopener noreferrer" className="cafen-reel-card">
                 <div className="cafen-reel-play">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-burgundy ml-0.5">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                   </svg>
                 </div>
                 <div className="cafen-reel-image-wrapper">
-                  <Image src="/assets/polaroid_2.png" alt="Savoir-faire Yabo" fill style={{ objectFit: "cover" }} />
+                  <video
+                    src="/assets/tiktok_video_2.mp4"
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
                 </div>
               </a>
             </div>
 
-            {/* Center side: Instagram Badge & Title */}
+            {/* Center side: TikTok Badge & Title */}
             <div className="cafen-social-center">
-              {/* Instagram colored icon */}
-              <div className="cafen-instagram-badge-icon mb-6">
-                <svg viewBox="0 0 100 100" className="w-10 h-10 rounded-2xl">
-                  <defs>
-                    <radialGradient id="ig-grad" cx="30%" cy="107%" r="130%">
-                      <stop offset="0%" stopColor="#fdf497" />
-                      <stop offset="5%" stopColor="#fdf497" />
-                      <stop offset="45%" stopColor="#fd5949" />
-                      <stop offset="60%" stopColor="#d6249f" />
-                      <stop offset="100%" stopColor="#285AEB" />
-                    </radialGradient>
-                  </defs>
-                  <rect width="100" height="100" rx="22" fill="url(#ig-grad)" />
-                  <rect x="18" y="18" width="64" height="64" rx="16" fill="none" stroke="#ffffff" strokeWidth="6.5" />
-                  <circle cx="50" cy="50" r="16" fill="none" stroke="#ffffff" strokeWidth="6.5" />
-                  <circle cx="71" cy="29" r="4.5" fill="#ffffff" />
+              {/* TikTok neon styled icon */}
+              <div className="cafen-instagram-badge-icon mb-6" style={{ background: '#000000', padding: '12px', borderRadius: '20px', boxShadow: '0px 0px 15px rgba(0, 242, 234, 0.4), 0px 0px 15px rgba(254, 44, 85, 0.4)' }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="#ffffff" viewBox="0 0 16 16">
+                  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
                 </svg>
               </div>
               <h2 className="elegant-menu-title max-w-sm mx-auto leading-tight mb-2">
                 Suivez la gourmandise
               </h2>
               <span className="cafen-social-username block hover:text-mustard transition-colors">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                  @YaboCuisine
+                <a href="https://www.tiktok.com/@yabo_cyrovanie" target="_blank" rel="noopener noreferrer">
+                  @yabo_cyrovanie
                 </a>
               </span>
             </div>
@@ -1003,26 +1005,40 @@ export default function Home() {
             {/* Right side: Reels 3 & 4 */}
             <div className="cafen-social-column right-cols">
               {/* Reel 3 */}
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="cafen-reel-card">
+              <a href="https://www.tiktok.com/@yabo_cyrovanie/video/7640838303352229153" target="_blank" rel="noopener noreferrer" className="cafen-reel-card">
                 <div className="cafen-reel-play">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-burgundy ml-0.5">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                   </svg>
                 </div>
                 <div className="cafen-reel-image-wrapper">
-                  <Image src="/assets/top_pick_1.png" alt="Festin Jolof" fill style={{ objectFit: "cover" }} />
+                  <video
+                    src="/assets/tiktok_video_3.mp4"
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
                 </div>
               </a>
 
               {/* Reel 4 */}
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="cafen-reel-card">
+              <a href="https://www.tiktok.com/@yabo_cyrovanie/video/7640504060176518433" target="_blank" rel="noopener noreferrer" className="cafen-reel-card">
                 <div className="cafen-reel-play">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-burgundy ml-0.5">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                   </svg>
                 </div>
                 <div className="cafen-reel-image-wrapper">
-                  <Image src="/assets/polaroid_4.png" alt="Dokor dorés" fill style={{ objectFit: "cover" }} />
+                  <video
+                    src="/assets/tiktok_video_4.mp4"
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
                 </div>
               </a>
             </div>
